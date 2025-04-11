@@ -1,73 +1,113 @@
-# Welcome to your Lovable project
+# **AI Content Generator App - Documentation**  
 
-## Project info
+## **📌 Overview**  
+The **AI Content Generator App** is a web-based application that leverages artificial intelligence to generate various types of content, such as blog posts, marketing copy, social media captions, and more. Built with modern web technologies, it offers a fast, responsive, and user-friendly experience.  
 
-**URL**: https://lovable.dev/projects/19f73202-f2a4-4afa-a368-d242cfeed438
+---
 
-## How can I edit this code?
+## **🛠️ Tech Stack**  
+| Technology | Purpose |  
+|------------|---------|  
+| **Vite** | Ultra-fast build tool for React & TypeScript |  
+| **TypeScript** | Adds static typing for better code reliability |  
+| **React** | Frontend framework for building dynamic UIs |  
+| **shadcn-ui** | Reusable, accessible UI components |  
+| **Tailwind CSS** | Utility-first CSS framework for styling |  
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## **✨ Features**  
+1. **AI-Powered Content Generation**  
+   - Generate text based on user prompts (e.g., blog posts, ads, tweets).  
+   - Supports different content tones (professional, casual, persuasive).  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/19f73202-f2a4-4afa-a368-d242cfeed438) and start prompting.
+2. **Responsive & Modern UI**  
+   - Clean, minimalist design with **dark/light mode** support.  
+   - Built with **shadcn-ui** components for consistency.  
 
-Changes made via Lovable will be committed automatically to this repo.
+3. **Fast Performance**  
+   - Optimized with **Vite** for near-instant HMR (Hot Module Replacement).  
 
-**Use your preferred IDE**
+4. **Type Safety**  
+   - Reduces bugs with **TypeScript**-enforced types.  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## **🚀 Installation & Setup**  
+### **Prerequisites**  
+- Node.js (v18+)  
+- npm / yarn / pnpm  
 
-Follow these steps:
+### **Steps**  
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/yourusername/ai-content-generator.git
+   cd ai-content-generator
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**  
+   ```bash
+   npm install  # or yarn / pnpm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Run the development server**  
+   ```bash
+   npm run dev
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Open in browser**  
+   Visit `http://localhost:5173`  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+---
+
+## **📂 Project Structure**  
+```bash
+src/  
+├── assets/           # Images, icons, etc.  
+├── components/       # Reusable React components  
+├── lib/              # Utility functions, API calls  
+├── styles/           # Global CSS/Tailwind config  
+├── App.tsx           # Main App component  
+└── main.tsx          # Vite entry point  
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## **🔌 API Integration**  
+The app connects to an **AI API** (e.g., OpenAI GPT, Hugging Face) for content generation.  
 
-**Use GitHub Codespaces**
+### **Example API Call (using OpenAI)**  
+```ts
+import OpenAI from "openai";
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+const openai = new OpenAI({ apiKey: "YOUR_API_KEY" });
 
-## What technologies are used for this project?
+async function generateContent(prompt: string) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: prompt }],
+  });
+  return response.choices[0].message.content;
+}
+```
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## **🎨 UI Components (shadcn-ui + Tailwind)**  
+- **`<Button />`** – Interactive buttons with variants.  
+- **`<Input />`** – Stylish input fields for prompts.  
+- **`<Card />`** – Displays generated content.  
+- **Dark/Light Mode** – Toggleable theme using `next-themes`.  
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/19f73202-f2a4-4afa-a368-d242cfeed438) and click on Share -> Publish.
+## **📜 License**  
+MIT License – Free to use, modify, and distribute.  
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes it is!
+### **💬 Feedback & Contributions**  
+Feel free to open **issues** or **PRs** if you have suggestions!  
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🚀 **Happy Coding!** 🚀  
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
